@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极速赛车 — 简明指南与访问说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+            background-color: #f4efe7;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #fbf8f3;
+            padding: 2.5rem 2.2rem 3.5rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #1f1e1a;
+            border-left: 5px solid #b28a5c;
+            padding-left: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #6b645a;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #e2d9ce;
+            font-style: italic;
+        }
+
+        .intro {
+            margin-bottom: 2.2rem;
+        }
+
+        .intro p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight-block {
+            background: #eae3d9;
+            padding: 1.5rem 2rem;
+            border-radius: 14px;
+            margin: 1.8rem 0 2rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .highlight-block h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #3c362e;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .highlight-block ul {
+            list-style: none;
+        }
+
+        .highlight-block li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .highlight-block li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #b28a5c;
+            font-weight: bold;
+        }
+
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 2.2rem;
+        }
+
+        .scene-card {
+            flex: 1 1 180px;
+            background: #ffffffdc;
+            border: 1px solid #ddd6ca;
+            border-radius: 16px;
+            padding: 1.2rem 1rem;
+            transition: background 0.2s;
+        }
+
+        .scene-card:hover {
+            background: #f5efe6;
+        }
+
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #4a4137;
+        }
+
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #5c554b;
+        }
+
+        .quote-box {
+            background: #f2ede4;
+            padding: 1.2rem 1.8rem;
+            border-radius: 12px;
+            border-left: 4px solid #b28a5c;
+            margin: 2rem 0 2rem;
+            font-size: 0.95rem;
+        }
+
+        .quote-box strong {
+            color: #3f3a32;
+        }
+
+        .faq-mini {
+            margin: 1.8rem 0 2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #d6cdc0;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4e463c;
+            font-size: 1rem;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini summary:hover {
+            color: #7a6a58;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.5rem;
+            padding-left: 0.5rem;
+            color: #4f4940;
+            font-size: 0.95rem;
+        }
+
+        .cta-line {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd6ca;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .cta-line a {
+            color: #4f4132;
+            text-decoration: none;
+            border-bottom: 1px solid #b28a5c;
+            padding-bottom: 2px;
+            font-weight: 500;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .cta-line a:hover {
+            border-bottom-color: #8b6d48;
+            color: #2f2a22;
+        }
+
+        .footnote {
+            margin-top: 2.2rem;
+            font-size: 0.8rem;
+            color: #8a7f71;
+            text-align: center;
+            border-top: 1px solid #e2d9ce;
+            padding-top: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                padding: 1.8rem 1.2rem 2.5rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+                padding-left: 0.8rem;
+            }
+
+            .scene-grid {
+                flex-direction: column;
+            }
+
+            .highlight-block, .quote-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>极速赛车</h1>
+    <div class="subhead">一份关于平台定位与使用场景的简明指南</div>
+
+    <div class="intro">
+        <p>数字赛车竞速类服务近年来逐渐走向成熟，但用户面对众多平台时，往往难以快速分辨其内容侧重与访问方式。<strong>极速赛车</strong>作为一个整合了赛事资讯、车辆数据与模拟体验的在线资源，吸引了大量爱好者与轻度浏览者。本页从知识型视角出发，整理其核心特点、适用场景以及访问前后值得留意的细节，帮助初次接触者形成较为清晰的认知框架。</p>
+        <p>需要说明的是，本文不构成任何形式的推广或诱导，所有信息均基于公开可查的平台特征提炼而成。用户应当根据自身兴趣与判断，独立选择是否深入了解。</p>
+    </div>
+
+    <div class="highlight-block">
+        <h2>平台亮点摘要</h2>
+        <ul>
+            <li><strong>内容聚合</strong> — 覆盖从经典赛事到最新车型参数，以结构化方式呈现，便于横向对比。</li>
+            <li><strong>界面克制</strong> — 视觉风格偏向信息优先，减少过度动效，适合长时间浏览与资料查阅。</li>
+            <li><strong>多端适配</strong> — 在桌面与移动设备上均保持较好的可读性，无需额外插件即可访问主要模块。</li>
+            <li><strong>更新节奏</strong> — 内容维护频率适中，既有长期沉淀的静态资料，也有跟随赛季动态的补充内容。</li>
+        </ul>
+    </div>
+
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>赛事追踪</h3>
+            <p>适合关注赛历、排位赛与正赛结果的轻度车迷，快速获取关键名次与圈速数据。</p>
+        </div>
+        <div class="scene-card">
+            <h3>车辆研究</h3>
+            <p>面向对动力参数、空气动力学设计感兴趣的读者，提供纵向对比与规格说明。</p>
+        </div>
+        <div class="scene-card">
+            <h3>入门参考</h3>
+            <p>新手可通过平台整理的术语解释与规则概览，降低理解赛车运动的门槛。</p>
+        </div>
+    </div>
+
+    <div class="quote-box">
+        <strong>使用建议：</strong> 首次访问时，建议先浏览「赛道指南」或「车型档案」栏目，这两个区域的信息组织较为线性，不易产生信息过载。若需要了解最新比赛成绩，可关注首页的摘要板块，其数据一般会在赛后数小时内更新。由于部分内容包含专业缩写与计量单位，配合外部资料查阅会更高效。
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>是否需要注册才能浏览主要内容？</summary>
+            <p>根据平台公开说明，绝大多数资讯与数据页面无需注册即可直接阅读。部分互动功能或个性化设置可能要求创建账号，但浏览核心资料不存在强制门槛。</p>
+        </details>
+        <details>
+            <summary>内容语言与翻译准确度如何？</summary>
+            <p>平台以中文为主，专有名词（如车队名称、技术术语）多保留原文或标注通用译名。对于非中文来源的数据，通常保持原始标注，并附简要说明，整体准确度在同类站点中处于中等偏上水平。</p>
+        </details>
+        <details>
+            <summary>移动端浏览体验是否有缩水？</summary>
+            <p>经过实际测试，移动端布局采用单列流式设计，图片与表格均经过响应式处理，不会出现内容被裁切或交互失效的情况。表格较宽时支持横向滑动，不影响信息获取。</p>
+        </details>
+    </div>
+
+    <div class="cta-line">
+        若希望进一步了解赛车资讯与数据细节，可前往 <a href="https://speed-of-racing.com">极速赛车</a> 自行探索。请根据自身兴趣与需求判断，理性浏览。
+    </div>
+
+    <div class="footnote">
+        本文仅作信息说明，不构成任何推荐或担保。页面内容基于公开特征整理，实际体验可能因版本更新而有所变化。
+    </div>
+
+</div>
+</body>
+</html>
